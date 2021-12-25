@@ -1,0 +1,1 @@
+/opt/pentaho/client-tools/data-integration/./kitchen.sh /rep:"aws-pentaho" /job:"Job"
