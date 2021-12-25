@@ -35,9 +35,9 @@ Resumo: Fonte de Dados > ETL > Automatização do ETL e do Start/Stop do servido
 *	Amazon Athena
 
 ### Etapas:
-*	Deploy de aplicação web com Elastic Beanstalk, a aplicação utilizada está disponível no repositório <a href="https://github.com/viniciusariza/agenda-z">agenda-z</a>; 
-*	Integração de aplicação web com banco de dados no RDS;
-*	Conexão de fonte de dados no RDS através do PDI instalado em uma instância EC2 Linux, tratamento dos dados e carga de dados para um Bucket S3;
+*	Deploy da aplicação web com Elastic Beanstalk. A aplicação utilizada está disponível no repositório <a href="https://github.com/viniciusariza/agenda-z">agenda-z</a>; 
+*	Integração da aplicação web com banco de dados no RDS;
+*	Conexão da fonte de dados no RDS através do PDI instalado em uma instância EC2 Linux, tratamento dos dados e carga de dados para um Bucket S3;
 *	Automatização do fluxo de atualizações executando o spoon periodicamente na instância EC2 através do cron;
 *	Criação de função Lambda para Start/Stop da instância EC2 apenas nas janelas de atualizações.
 *	Crawler do Bucket S3 com o Glue e conexão com o Athena;
