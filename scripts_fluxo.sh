@@ -32,7 +32,8 @@ aws configure #Configurar com os dados da AWS Key
 
 #Passo 7 - Criar transformação no pentaho com no mínimo 2 steps, utilizando repositório remoto com o cliente na máquina local
 #Step 1: Table input (com as credenciais do RDS)
-#Step 2: S3 output (Necessário ter executado o passo anterior)
+#Step 2-n-1: Transformações
+#Step n: S3 output (Necessário ter executado o passo anterior)
 DIRETÓRIO_PENTAHO/./kitchen.sh /rep:"REPOSITÓRIO" /job:"Job" #Criar arquivo com extenção .sh
 
 #Passo 8 - Indicar repositório do pentaho editando arquivo repositores.xml no diretório .kettle, com a estrutura a seguir.
@@ -74,7 +75,6 @@ def lambda_handler(event, context):
     print('stopped your instances: ' + str(instances))
 	
 #Passo 11 - Criar janela de atualização com o EventBridge, executando função Lambda
-
 
 #Passo 12 - Executar crawler no Glue e acessar com o Athena, se atentando para a configuração correta das roles e policies (padrão)
 
