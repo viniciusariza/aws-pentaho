@@ -15,7 +15,7 @@ _________________
 
 
 ### Sobre
-A solução cria um fluxo completo e totalmente automatizado de extração, tratamento e carga de dados integrando as ferramentas Pentaho Data Integration e Amazon Web Services.
+A solução cria um fluxo automatizado de extração, tratamento e carga de dados integrando as ferramentas Pentaho Data Integration e Amazon Web Services.
 
 Resumo: Fonte de Dados > ETL > Automatização do ETL e do Start/Stop do servidor > Consumo dos dados.
 
