@@ -51,7 +51,32 @@ DIRETÓRIO_PENTAHO/./kitchen.sh /rep:"REPOSITÓRIO" /job:"Job" #Criar arquivo co
 crontab -e
 * * * * * CAMINHO_ARQUIVO_kitchen.sh
 
-#Passo 10 - Executar crawler no Glue e acessar com o Athena, se atentando para a configuração correta das roles e policies (padrão)
+#Passo 10 - Criar função Lambda para inicializar e parar instâncias EC2
+#Start instância
+import boto3
+region = 'us-east-2'
+instances = ['i-0319c1058971...']
+ec2 = boto3.client('ec2', region_name=region)
 
-#Passo 11 - Consumir os dados em ferramenta d eDatava Viz através de conector nativo ou JDBC
+def lambda_handler(event, context):
+    ec2.start_instances(InstanceIds=instances)
+    print('started your instances: ' + str(instances))
+	
+
+#Stop instância
+import boto3
+region = 'us-east-2'
+instances = ['i-0319c1058971...']
+ec2 = boto3.client('ec2', region_name=region)
+
+def lambda_handler(event, context):
+    ec2.stop_instances(InstanceIds=instances)
+    print('stopped your instances: ' + str(instances))
+	
+#Passo 11 - Criar janela de atualização com o EventBridge, executando função Lambda
+
+
+#Passo 12 - Executar crawler no Glue e acessar com o Athena, se atentando para a configuração correta das roles e policies (padrão)
+
+#Passo 13 - Consumir os dados em ferramenta de Data Viz através de conector nativo ou JDBC
 jdbc:awsathena://athena.us-east-2.amazonaws.com:443;UID=[MY_AWS_ACCESS_KEY];PWD=[MY_AWS_SECRET_KEY];S3OutputLocation=s3://[S3_OUTPUT_BUCKET];
